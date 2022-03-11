@@ -48,3 +48,7 @@ resource "aws_instance" "java_app_instance" {
     Name = "Java app"
   }
 }
+
+output "ec2_global_ips" {
+  value = ["${aws_instance.java_app_instance.*.public_ip}"]
+}
